@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Zenlan Collage Example - Victoria &amp; Albert Museum</title>
+    <link type='text/css' rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link type='text/css' rel='stylesheet' href="lib/isotope.css"/>
+    <style>
+      body {color:#fff;background:#000;}
+      .hide {display:none;}
+      .right {float:right;}
+      .left {float:left;}
+      .form {width:auto;text-align:left;clear:none;}
+      .isotope ul {list-style-type:none;}
+      #wait {height:12px;margin:10px;}
+      .banner {
+        background:#000;
+        width:auto;
+        position:fixed;
+        top:0;
+        margin-bottom:10px;
+        z-index:100;
+      }
+      #results {
+        width:auto;
+        position:relative;
+        top:50px;
+        clear:both;
+      }
+      #query {position: relative;z-index: 10000;}
+      .ui-autocomplete {z-index: 9999 !important;font-size:12px;}
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <div class="left">
+        <h2>Victoria &amp; Albert Museum Example</h2>
+      </div>
+      <div class="form right">
+        <div class="hide">
+          <span id="limit">20</span>
+        </div>
+        <div>
+          <label for="query">Keywords</label>
+          <input id="query" value="" type="text" list="recent" size="32" autocomplete="off"/>
+          <input id="offset" type="hidden" value="0"/>
+          <datalist id="recent"></datalist>
+          <button id="btn-search" class="button">Fetch</button>
+          <button id="btn-reset" class="button">Reset</button>
+          <button id="btn-shuffle" class="button">Shuffle</button>
+        </div>
+        <div id="wait" class="hide"></div>
+      </div>
+    </div>
+    <div id="results" class="isotope">
+      <ul id="results-list"></ul>
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://caja.appspot.com/html-css-sanitizer-minified.js"></script>
+    <script type="text/javascript" src="lib/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="zenlan.collage.js"></script>
+    <script type="text/javascript" src="example.js"></script>
+  </body>
+</html>
