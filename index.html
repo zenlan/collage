@@ -6,7 +6,7 @@
     <link type='text/css' rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
     <link type='text/css' rel='stylesheet' href="lib/isotope.css"/>
     <style>
-      body {color:#fff;background:#000;}
+      body {color:#fff;background:#000;font-family: sans-serif;}
       .hide {display:none;}
       .right {float:right;}
       .left {float:left;}
@@ -20,6 +20,9 @@
         top:0;
         margin-bottom:10px;
         z-index:100;
+      }
+      h2 {
+        padding: 0 20px;
       }
       #results {
         width:auto;
@@ -41,7 +44,6 @@
           <span id="limit">20</span>
         </div>
         <div>
-          <label for="query">Keywords</label>
           <input id="query" value="" type="text" list="recent" size="32" autocomplete="off"/>
           <input id="offset" type="hidden" value="0"/>
           <datalist id="recent"></datalist>
