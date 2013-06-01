@@ -39,7 +39,6 @@ var zenlanCollage = {
     wait : 'wait',
     results : 'results-list',
     query : 'query',
-    offset : 'offset',
     recent : 'recent'
   },
 
@@ -50,12 +49,13 @@ var zenlanCollage = {
   init : function ( options, elem ) {
     var base = this;
     base.options = $.extend( {}, base.default_vars, options );
-    base.elem  = elem;
-    base.$elem = $(elem);
     base.elems = {};
     $.each(base.default_elems, function(key, value) {
       base.elems[key] = $(document.getElementById(value));
     });
+    if ($(elem).hasClass('isotope')) {
+      base.elems['results'] = $(elem);
+    }
     base.recent = base.getRecentQueries();
     return base;
   },
@@ -348,6 +348,10 @@ var zenlanCollage = {
       base.buildRecentQueriesDatalist(qry);
     }
     return qry;
+  },
+
+   setNewOffset : function () {
+    this.setOption('offset',parseInt(this.getOption('limit')) + parseInt(this.getOption('offset')));
   },
 
   initialise : function() {
