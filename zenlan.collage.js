@@ -275,7 +275,6 @@ var zenlanCollage = {
             base.handleImageClick(this);
           });
         });
-        base.elems.results.isotope('remove', $('#message'));
         base.elems.results.isotope('insert', $items );
         base.setNewOffset();
         base.setAjaxBusy(false);
@@ -292,7 +291,8 @@ var zenlanCollage = {
 
   showMessage : function (text) {
     this.log(text);
-    var elem = '<li class="iso message">' + text + '</li>';
+    this.elems.results.isotope('remove', $('.' + this.getOption('name')));
+    var elem = '<li class="iso message ' + this.getOption('name') + '">' + text + '</li>';
     this.elems.results.isotope('insert', $(elem) );
 
   },
