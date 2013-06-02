@@ -1,8 +1,7 @@
 jQuery(document).ready(function($) {
 
   $.plugin('zccVam', zenlanCollage);
-  var obj = {};
-  $(obj).zccVam({
+  $('#results-list').zccVam({
     name: "zccVam",
     labelLong: "Victoria & Albert Museum",
     labelShort: "V&A",
@@ -12,24 +11,22 @@ jQuery(document).ready(function($) {
     excludeNoPreview : $('#excludenopreview').text(),
     gaEvents : false
   });
-  var zccVam = $(obj).data('zccVam');
+  var zccVam = $('#results-list').data('zccVam');
 
   zccVam.resetEverything = function() {
     this.resetComponents();
     this.setOption('offset', 0);
   }
   zccVam.getURL = function (item) {
-    var url = '';
-    if (item.hasOwnProperty('id')) {
-      var id = item.id.replace(/_/g, '/');
-      url = 'http://collections.vam.ac.uk/item/' + id;
-    }
-    return url;
+    return 'http://collections.vam.ac.uk/item/' + this.getItemID(item);
   }
   zccVam.getItemID = function (item) {
     var id;
     if (item.hasOwnProperty('fields')) {
       id = item.fields.object_number + '_' + item.fields.slug;
+    }
+    else {
+      id = $(item).attr('id').replace(/_/g, '/');
     }
     return id;
   }
