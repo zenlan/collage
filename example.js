@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
     this.setOption('offset', 0);
   }
   zccVam.getURL = function (item) {
-    return 'http://collections.vam.ac.uk/item/' + this.getItemID(item);
+    return 'https://collections.vam.ac.uk/item/' + this.getItemID(item);
   }
   zccVam.getItemID = function (item) {
     var id;
@@ -34,7 +34,7 @@ jQuery(document).ready(function($) {
     var url = '';
     if (item.hasOwnProperty('fields')) {
       var suffix = '_jpg_' + (window.innerWidth<600?'s':(window.innerWidth>900?'ws':'o')) + '.jpg';
-      url = 'http://media.vam.ac.uk/media/thira/collection_images/' + item.fields.primary_image_id.substr(0,6) + '/' + item.fields.primary_image_id + suffix;
+      url = 'https://media.vam.ac.uk/media/thira/collection_images/' + item.fields.primary_image_id.substr(0,6) + '/' + item.fields.primary_image_id + suffix;
     }
     if ((url == '') && (!this.getOption('excludeNoPreview'))) {
       url = 'placeholder.png';
@@ -69,7 +69,7 @@ jQuery(document).ready(function($) {
   }
   zccVam.search = function () {
     var qry = this.newQuery(true);
-    var url = 'http://www.vam.ac.uk/api/json/museumobject/search'
+    var url = 'https://www.vam.ac.uk/api/json/museumobject/search'
     + '?images=1'
     + '&limit=' + this.getOption('limit')
     + '&offset=' + this.getOption('offset')
